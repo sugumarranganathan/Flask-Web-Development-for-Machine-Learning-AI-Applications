@@ -1,0 +1,51 @@
+Why is this module needed?
+
+Flask is the bridge between Python/AI models and web applications. After building Machine Learning or Generative AI models, users need a way to interact with them through a browser. Flask provides that backend framework.
+
+For example:
+
+User
+   ↓
+Web Browser
+   ↓
+Flask Web Application
+   ↓
+Machine Learning / Gemini / LLM
+   ↓
+Prediction or AI Response
+
+Without Flask:
+
+Your Python code runs only in the terminal.
+Other users cannot easily access your AI model.
+
+With Flask:
+
+Anyone can use your AI application through a web browser.
+You can deploy it online and share a URL.
+
+===
+
+Course Topics Explained
+
+| No.    | Topic                                    | Why it is Needed                                                                                              |
+| ------ | ---------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| **1**  | Web Development Introduction             | Learn what web development is, how browsers communicate with servers, and where Flask fits.                   |
+| **2**  | Decorators                               | Understand Flask route decorators like `@app.route()` that map URLs to Python functions.                      |
+| **3**  | Simple Web Application                   | Create your first Flask application to understand the project structure and request handling.                 |
+| **4**  | Simple Web App using HTML File           | Learn how Flask renders HTML templates so users see web pages instead of plain text.                          |
+| **5**  | Parameter Passing in the Web App         | Pass values through URLs or forms to make applications dynamic.                                               |
+| **6**  | Normal Flask App                         | Build a complete Flask project with multiple routes and templates.                                            |
+| **7**  | Normal Flask App with Input and Output   | Accept user input through forms and display processed results.                                                |
+| **8**  | Input and Output Backend Process         | Understand how data flows from the browser to Flask, is processed, and returned to the browser.               |
+| **9**  | Machine Learning Application using Flask | Connect a trained ML model to a Flask web application for real-time predictions.                              |
+| **10** | Deployment File Importance               | Learn the role of files like `requirements.txt`, configuration files, and production settings for deployment. |
+| **11** | Machine Learning Application – 2         | Extend the ML project with additional features, validation, or improved UI.                                   |
+| **12** | Improving UI with ChatGPT                | Use AI tools to enhance HTML, CSS, and JavaScript for a better user experience.                               |
+| **13** | ML Deployment on Render                  | Deploy your Flask + ML application to the cloud using Render so anyone can access it.                         |
+| **14** | How to use ChatGPT for Project           | Use ChatGPT to generate code, debug issues, improve documentation, and accelerate development.                |
+| **15** | Assignment ML Project                    | Apply everything you've learned by building and deploying a complete project.                                 |
+
+
+=====
+
