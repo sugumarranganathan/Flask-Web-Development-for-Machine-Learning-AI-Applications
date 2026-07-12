@@ -1,0 +1,75 @@
+Flask Fundamentals
+
+These topics teach you how to build web applications with Flask.
+
+| No. | Topic                                  | Why it is needed                                                       |
+| --- | -------------------------------------- | ---------------------------------------------------------------------- |
+| 1   | Web Development Introduction           | Understand client-server architecture and web applications.            |
+| 2   | Decorators                             | Learn `@app.route()` and URL routing in Flask.                         |
+| 3   | Simple Web Application                 | Build your first Flask application.                                    |
+| 4   | Simple Web App using HTML File         | Display HTML pages with Flask.                                         |
+| 5   | Parameter Passing in the Web App       | Pass data through URLs and forms.                                      |
+| 6   | Normal Flask App                       | Learn a complete Flask project structure.                              |
+| 7   | Normal Flask App with Input and Output | Handle user input and display results.                                 |
+| 8   | Input and Output Backend Process       | Understand how requests and responses flow between browser and server. |
+
+Purpose: Learn Flask from the basics.
+=====
+
+Flask + Machine Learning
+
+After learning Flask, you connect it to a Machine Learning model.
+
+| No. | Topic                                    | Why it is needed                                                     |
+| --- | ---------------------------------------- | -------------------------------------------------------------------- |
+| 9   | Machine Learning Application using Flask | Integrate an ML model with Flask.                                    |
+| 10  | Deployment File Importance               | Learn about `requirements.txt`, configuration, and deployment files. |
+| 11  | Machine Learning Application – 2         | Build a more complete ML web application.                            |
+
+Purpose: Build AI/ML applications using Flask.
+
+=====
+
+Deployment & Productivity
+
+These topics focus on improving and publishing your application.
+
+| No. | Topic                          | Why it is needed                                              |
+| --- | ------------------------------ | ------------------------------------------------------------- |
+| 12  | Improving UI with ChatGPT      | Use AI to improve the application's interface.                |
+| 13  | ML Deployment on Render        | Publish the Flask application online.                         |
+| 14  | How to use ChatGPT for Project | Use ChatGPT to write, debug, and improve code.                |
+| 15  | Assignment ML Project          | Build a complete end-to-end project using everything learned. |
+
+Purpose: Make your project professional and deploy it for others to use.
+
+====
+
+Python
+      │
+      ▼
+Flask Basics
+      │
+      ▼
+HTML + CSS
+      │
+      ▼
+Forms & User Input
+      │
+      ▼
+Backend Processing
+      │
+      ▼
+Machine Learning Integration
+      │
+      ▼
+Improve UI
+      │
+      ▼
+Deploy on Render
+      │
+      ▼
+Complete AI/ML Project
+
+
+
