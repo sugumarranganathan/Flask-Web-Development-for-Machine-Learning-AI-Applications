@@ -1,0 +1,33 @@
+Topic 9 - Machine Learning Application
+
+Mini Project
+
+Employee Salary Predictor
+
+Input
+
+Experience
+
+Education
+
+Age
+
+Backend
+
+Model.predict()
+
+Output
+
+Predicted Salary
+
+₹9,45,000
+
+Learn
+
+Pickle
+
+Joblib
+
+Load model
+
+Prediction
