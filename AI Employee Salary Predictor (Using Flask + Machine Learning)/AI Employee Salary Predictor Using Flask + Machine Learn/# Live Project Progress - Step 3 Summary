@@ -1,138 +1,122 @@
 # Live Project Progress - Step 3 Summary
 
-| Topic | Description | Why We Use It | Example |
-|--------|-------------|---------------|----------|
-| **Python** | Programming language | Write backend logic | `python app.py` |
-| **Flask** | Python web framework | Build web applications | `from flask import Flask` |
-| **Werkzeug** | Flask's internal WSGI library | Handles HTTP requests, responses, routing, and debugging | Installed automatically with Flask |
-| **Virtual Environment (venv)** | Isolated Python environment | Avoid package conflicts and protect system Python | `python3 -m venv venv` |
-| **Activate Virtual Environment** | Activates project environment | Use project-specific packages | `source venv/bin/activate` |
-| **app.py** | Main Flask application | Contains routes and application logic | `app.py` |
-| **Flask Application Object** | Creates the web application | Starts the Flask project | `app = Flask(__name__)` |
-| **Route** | Maps URL to Python function | Defines webpages | `@app.route("/")` |
-| **Home Function** | Executes when Home page is opened | Returns webpage content | `def home():` |
-| **Return Statement** | Sends response to browser | Display webpage | `return "<h1>Welcome</h1>"` |
-| **Debug Mode** | Development mode | Automatically reloads code after changes | `app.run(debug=True)` |
-| **Flask Development Server** | Local testing server | Run application during development | `python app.py` |
-| **Browser** | Client application | Sends requests and displays responses | Chrome |
-| **localhost / 127.0.0.1** | Your own computer | Access local Flask application | `http://127.0.0.1:5000` |
-| **Port 5000** | Default Flask port | Identifies Flask application | `127.0.0.1:5000` |
-| **HTTP Request** | Browser requests webpage | Ask Flask for a page | `GET /` |
-| **HTTP Response** | Flask sends webpage | Display webpage in browser | HTML Response |
-| **Favicon** | Small browser tab icon | Browser automatically requests it | `favicon.ico` |
-| **404 Not Found** | File not available | Indicates requested file is missing | `GET /favicon.ico 404` |
+## Technologies Used
+
+| Technology | Purpose | Example |
+|------------|---------|---------|
+| Python | Backend Programming | `python app.py` |
+| Flask | Web Framework | `from flask import Flask` |
+| Werkzeug | Internal WSGI Library | Installed with Flask |
+| Virtual Environment | Isolated Python Packages | `python3 -m venv venv` |
 
 ---
 
-# Commands Used
+## Flask Components
 
-| Command | Purpose |
-|----------|---------|
+| Component | Purpose |
+|-----------|---------|
+| `app.py` | Main Flask application |
+| `app = Flask(__name__)` | Creates Flask application |
+| `@app.route("/")` | Creates Home Page |
+| `home()` | Executes Home Page |
+| `return` | Sends response to browser |
+| `app.run(debug=True)` | Starts Flask Server |
+
+---
+
+## Commands Used
+
+| Command | Description |
+|---------|-------------|
 | `python3 -m venv venv` | Create Virtual Environment |
-| `source venv/bin/activate` | Activate Virtual Environment |
+| `source venv/bin/activate` | Activate Environment |
 | `pip install flask` | Install Flask |
-| `python -m flask --version` | Check Flask Version |
-| `python app.py` | Start Flask Application |
+| `python -m flask --version` | Check Version |
+| `python app.py` | Run Flask |
 
 ---
 
-# Files Created
+## Project Structure
 
-| File / Folder | Purpose |
-|---------------|---------|
-| `app.py` | Main Flask Application |
-| `templates/` | Stores HTML pages |
-| `static/` | Stores CSS, JavaScript, Images |
-| `static/css/` | Stores CSS files |
-| `static/js/` | Stores JavaScript files |
-| `static/images/` | Stores Images |
-| `venv/` | Python Virtual Environment |
-
----
-
-# Code Written
-
-```python
-from flask import Flask
-
-# Create Flask Application
-app = Flask(__name__)
-
-# Home Page
-@app.route("/")
-def home():
-    return "<h1>Welcome to AI Employee Salary Predictor</h1>"
-
-# Run Flask Application
-if __name__ == "__main__":
-    app.run(debug=True)
+```text
+AI_Employee_Salary_Predictor
+│
+├── app.py
+├── templates
+│   └── index.html
+└── static
+    ├── css
+    │   └── style.css
+    ├── images
+    └── js
 ```
 
 ---
 
-# Code Explanation
+## Browser Workflow
 
-| Code | Purpose |
-|------|---------|
-| `from flask import Flask` | Import Flask Framework |
-| `app = Flask(__name__)` | Create Flask Application |
-| `@app.route("/")` | Create Home Page Route |
-| `def home():` | Home Page Function |
-| `return "<h1>...</h1>"` | Send HTML Response |
-| `app.run(debug=True)` | Start Flask Development Server |
-
----
-
-# Browser Workflow
-
-| Step | Process |
-|------|---------|
-| 1 | User opens Browser |
-| 2 | Browser requests `http://127.0.0.1:5000` |
-| 3 | Flask receives HTTP Request |
-| 4 | `home()` function executes |
-| 5 | Flask returns HTML |
-| 6 | Browser displays webpage |
+```text
+Browser
+    │
+    ▼
+http://127.0.0.1:5000
+    │
+    ▼
+Flask Server
+    │
+    ▼
+home()
+    │
+    ▼
+Return HTML
+    │
+    ▼
+Browser Displays Webpage
+```
 
 ---
 
-# Output
+## Output
 
 | Location | Result |
 |----------|--------|
-| Terminal | Flask Server Started |
+| Terminal | Flask Server Running |
 | Browser | Welcome to AI Employee Salary Predictor |
 
 ---
 
-# Common Messages
+## Common Messages
 
-| Message | Meaning | Action Required |
-|---------|---------|----------------|
-| `Running on http://127.0.0.1:5000` | Flask Server Running | ✅ No action |
-| `Debugger is active` | Debug Mode Enabled | ✅ No action |
-| `GET / HTTP/1.1 200` | Home Page Loaded Successfully | ✅ No action |
-| `GET /favicon.ico 404` | Browser requested favicon but file doesn't exist | ❌ Ignore for now |
-
----
-
-# What We Learned
-
-| Topic | Status |
-|--------|--------|
-| Python Environment | ✅ Completed |
-| Virtual Environment | ✅ Completed |
-| Flask Installation | ✅ Completed |
-| First Flask Application | ✅ Completed |
-| Flask Routing | ✅ Completed |
-| HTTP Request & Response | ✅ Completed |
-| Debug Mode | ✅ Completed |
-| Browser Communication | ✅ Completed |
+| Message | Meaning |
+|---------|---------|
+| `Running on http://127.0.0.1:5000` | Flask server started successfully |
+| `Debugger is active` | Debug mode enabled |
+| `GET / HTTP/1.1 200` | Home page loaded successfully |
+| `GET /favicon.ico 404` | Browser requested favicon (normal) |
 
 ---
 
-# Next Step
+## Learning Summary
 
-| Step | Topic | Purpose |
-|------|-------|---------|
-| **Step 4** | HTML Templates | Display professional HTML pages instead of returning HTML directly from Python |
+- ✅ Python Environment
+- ✅ Virtual Environment
+- ✅ Flask Installation
+- ✅ First Flask Application
+- ✅ Flask Routing
+- ✅ HTTP Request & Response
+- ✅ Debug Mode
+- ✅ Browser Communication
+
+---
+
+## Next Step
+
+**Step 4:** HTML Templates
+
+Learn:
+
+- HTML Structure
+- `render_template()`
+- `templates` Folder
+- `index.html`
+- Flask + HTML Integration
