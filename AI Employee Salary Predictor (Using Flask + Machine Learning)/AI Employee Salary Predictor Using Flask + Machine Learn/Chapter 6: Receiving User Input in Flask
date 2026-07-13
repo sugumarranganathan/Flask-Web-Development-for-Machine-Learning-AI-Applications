@@ -1,0 +1,655 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 6: Receiving User Input in Flask
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what `request` is
+- Learn how Flask receives user input
+- Understand `request.form`
+- Receive data from HTML forms
+- Display user input in the browser
+- Connect HTML forms with Flask
+- Understand the complete data flow between Browser and Flask
+
+---
+
+# 1. What is User Input?
+
+## Definition
+
+User Input is the information entered by a user into a web application.
+
+The information is collected using an HTML form and sent to the Flask server for processing.
+
+---
+
+## Real-Time Examples
+
+Examples of user input include:
+
+- Login Username
+- Password
+- Contact Form
+- Online Banking Transfer
+- Railway Ticket Booking
+- Employee Registration
+- Employee Salary Prediction
+
+Our project collects:
+
+- Employee Name
+- Age
+- Education
+- Experience
+- Job Role
+
+---
+
+## Answer
+
+User Input is the data entered by the user into a web application.
+
+---
+
+# 2. How Does Flask Receive User Input?
+
+The browser sends the form data to Flask.
+
+Flask receives the data using the `request` object.
+
+---
+
+## Workflow
+
+```text
+User
+
+↓
+
+HTML Form
+
+↓
+
+Browser Sends Data
+
+↓
+
+Flask Receives Data
+
+↓
+
+Python Processes Data
+
+↓
+
+Response Sent to Browser
+```
+
+---
+
+## Answer
+
+Flask receives user input through the `request` object.
+
+---
+
+# 3. What is request?
+
+## Definition
+
+`request` is a Flask object used to access data sent by the browser.
+
+It allows Flask to read:
+
+- Form Data
+- URL Parameters
+- Cookies
+- Files
+
+---
+
+## Import request
+
+```python
+from flask import Flask, render_template, request
+```
+
+---
+
+## Answer
+
+`request` is used to receive information sent by the browser.
+
+---
+
+# 4. What is request.form?
+
+## Definition
+
+`request.form` is used to access data submitted through an HTML form using the POST method.
+
+---
+
+## Example
+
+```python
+name = request.form["name"]
+```
+
+---
+
+## Answer
+
+`request.form` retrieves values entered into an HTML form.
+
+---
+
+# 5. Adding Name Attributes
+
+Flask can only receive data if every input has a **name** attribute.
+
+Update `index.html`.
+
+```html
+<form method="POST">
+
+<label>Employee Name</label>
+
+<input type="text" name="name">
+
+<br><br>
+
+<label>Age</label>
+
+<input type="number" name="age">
+
+<br><br>
+
+<label>Education</label>
+
+<select name="education">
+
+<option>B.E</option>
+
+<option>B.Tech</option>
+
+<option>MCA</option>
+
+<option>MBA</option>
+
+</select>
+
+<br><br>
+
+<label>Experience</label>
+
+<input type="number" name="experience">
+
+<br><br>
+
+<label>Job Role</label>
+
+<input type="text" name="job">
+
+<br><br>
+
+<input type="submit" value="Predict Salary">
+
+</form>
+```
+
+---
+
+## Answer
+
+The `name` attribute identifies each input field so Flask can retrieve its value.
+
+---
+
+# 6. Updating app.py
+
+```python
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET", "POST"])
+def home():
+
+    if request.method == "POST":
+
+        name = request.form["name"]
+        age = request.form["age"]
+        education = request.form["education"]
+        experience = request.form["experience"]
+        job = request.form["job"]
+
+        return f"""
+        Employee Name : {name}<br>
+        Age : {age}<br>
+        Education : {education}<br>
+        Experience : {experience}<br>
+        Job Role : {job}
+        """
+
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+---
+
+# Code Explanation
+
+## Import
+
+```python
+from flask import Flask, render_template, request
+```
+
+Imports Flask, HTML rendering, and the request object.
+
+---
+
+## Route
+
+```python
+@app.route("/", methods=["GET","POST"])
+```
+
+Allows both GET and POST requests.
+
+---
+
+## Checking Request Type
+
+```python
+if request.method == "POST":
+```
+
+Executes only after the user clicks the Submit button.
+
+---
+
+## Reading Form Data
+
+```python
+name = request.form["name"]
+```
+
+Reads the Employee Name.
+
+Similarly,
+
+```python
+age = request.form["age"]
+
+education = request.form["education"]
+
+experience = request.form["experience"]
+
+job = request.form["job"]
+```
+
+---
+
+## Returning Output
+
+```python
+return f"""
+Employee Name : {name}
+"""
+```
+
+Displays the received values in the browser.
+
+---
+
+## Answer
+
+Flask receives the user input using `request.form` and displays it.
+
+---
+
+# 7. Output
+
+User enters:
+
+```text
+Employee Name : Rahul
+
+Age : 28
+
+Education : B.E
+
+Experience : 5
+
+Job Role : Software Engineer
+```
+
+After clicking **Predict Salary**
+
+Browser displays:
+
+```text
+Employee Name : Rahul
+
+Age : 28
+
+Education : B.E
+
+Experience : 5
+
+Job Role : Software Engineer
+```
+
+---
+
+# 8. Understanding GET and POST
+
+When the webpage opens,
+
+```text
+GET
+```
+
+is used.
+
+When the user clicks Submit,
+
+```text
+POST
+```
+
+is used.
+
+---
+
+## Workflow
+
+```text
+Open Website
+
+↓
+
+GET Request
+
+↓
+
+Display Form
+
+↓
+
+User Enters Details
+
+↓
+
+Click Submit
+
+↓
+
+POST Request
+
+↓
+
+Flask Reads Data
+
+↓
+
+Display Result
+```
+
+---
+
+## Answer
+
+GET loads the page.
+
+POST sends user data.
+
+---
+
+# 9. Complete Data Flow
+
+```text
+User
+
+↓
+
+Enter Employee Details
+
+↓
+
+Click Predict Salary
+
+↓
+
+Browser
+
+↓
+
+POST Request
+
+↓
+
+Flask
+
+↓
+
+request.form
+
+↓
+
+Python Variables
+
+↓
+
+Response Generated
+
+↓
+
+Browser Displays Data
+```
+
+---
+
+# 10. Why Do We Need request.form?
+
+Without `request.form`
+
+Flask cannot read the values entered by the user.
+
+It only receives the request,
+
+not the individual field values.
+
+---
+
+## Answer
+
+`request.form` extracts individual values from the submitted HTML form.
+
+---
+
+# Summary
+
+After completing Chapter 6, you have learned:
+
+- ✅ User Input
+- ✅ request
+- ✅ request.form
+- ✅ GET Method
+- ✅ POST Method
+- ✅ Receiving Form Data
+- ✅ Displaying User Input
+- ✅ Flask Form Workflow
+
+---
+
+# Assignment (With Answers)
+
+## 1. What is User Input?
+
+### Answer
+
+User Input is the information entered by users into an HTML form.
+
+---
+
+## 2. What is request?
+
+### Answer
+
+`request` is a Flask object used to receive data sent from the browser.
+
+---
+
+## 3. What is request.form?
+
+### Answer
+
+`request.form` retrieves values submitted through an HTML form using the POST method.
+
+---
+
+## 4. Why is the name attribute important?
+
+### Answer
+
+The `name` attribute uniquely identifies each form field so Flask can access its value.
+
+Example
+
+```html
+<input type="text" name="name">
+```
+
+---
+
+## 5. How do you import request?
+
+### Answer
+
+```python
+from flask import request
+```
+
+---
+
+## 6. How do you receive Employee Name?
+
+### Answer
+
+```python
+name = request.form["name"]
+```
+
+---
+
+## 7. Why do we use methods=["GET","POST"]?
+
+### Answer
+
+GET displays the webpage.
+
+POST receives the submitted form data.
+
+---
+
+## 8. What happens when the Submit button is clicked?
+
+### Answer
+
+The browser sends a POST request containing all form data to the Flask server.
+
+---
+
+## 9. Can Flask receive form data without request.form?
+
+### Answer
+
+No.
+
+Flask requires `request.form` to access values submitted through an HTML form.
+
+---
+
+## 10. What is the output of this chapter?
+
+### Answer
+
+The application displays the values entered by the user after submitting the form.
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is request in Flask?
+
+**Answer:**
+
+`request` is a Flask object that stores information sent from the browser, including form data, URL parameters, cookies, and uploaded files.
+
+---
+
+## Q2. What is request.form?
+
+**Answer:**
+
+`request.form` is a dictionary-like object used to retrieve values submitted through an HTML form using the POST method.
+
+---
+
+## Q3. Why is the name attribute required in HTML forms?
+
+**Answer:**
+
+Without the `name` attribute, Flask cannot identify or retrieve the value entered into a form field.
+
+---
+
+## Q4. What is the purpose of methods=["GET","POST"]?
+
+**Answer:**
+
+It allows the route to handle both GET requests (to display the form) and POST requests (to process submitted data).
+
+---
+
+## Q5. What happens when the user clicks the Submit button?
+
+**Answer:**
+
+The browser sends a POST request to Flask, Flask retrieves the submitted values using `request.form`, processes the data, and returns a response to the browser.
+
+---
+
+## Q6. What is the difference between request and request.form?
+
+| request | request.form |
+|----------|--------------|
+| Contains all request information | Contains only form data |
+| Includes headers, cookies, URL data, etc. | Retrieves values submitted from HTML forms |
+
+---
+
+# Next Chapter
+
+# Chapter 7: Passing Data from Flask to HTML (Jinja2 Templates)
+
+In the next chapter, you will learn:
+
+- What is Jinja2?
+- Passing Variables to HTML
+- Displaying Dynamic Content
+- Using `{{ }}` Expressions
+- Using `{% %}` Statements
+- Displaying the Employee Details on a Beautiful Result Page
+
+By the end of Chapter 7, your application will display user-entered information on a professional HTML page instead of plain text.
