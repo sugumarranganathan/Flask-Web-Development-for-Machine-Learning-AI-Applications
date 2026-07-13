@@ -1,0 +1,31 @@
+Topic 5 - Parameter Passing in Web App
+
+Mini Project
+
+Greeting Application
+
+User enters
+
+Sugumar
+
+Output
+
+Welcome Sugumar
+
+Learn
+
+request.args
+
+request.form
+
+Data flow
+
+Browser
+
+↓
+
+Flask
+
+↓
+
+HTML
