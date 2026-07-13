@@ -1,0 +1,675 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 10: Deploying the Flask Application
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what Deployment is
+- Learn why Deployment is important
+- Prepare a Flask project for deployment
+- Create `requirements.txt`
+- Create `runtime.txt`
+- Create `Procfile`
+- Create `.gitignore`
+- Upload the project to GitHub
+- Deploy the project on Render
+- Access the application using a public URL
+
+---
+
+# 1. What is Deployment?
+
+## Definition
+
+Deployment is the process of moving a software application from your local computer to an online server so that anyone can access it through the Internet.
+
+Before deployment
+
+```text
+Your Computer
+
+↓
+
+localhost:5000
+```
+
+After deployment
+
+```text
+https://salarypredictor.onrender.com
+```
+
+Now anyone can access your application.
+
+---
+
+## Real-Time Examples
+
+Applications available online:
+
+- Gmail
+- Amazon
+- Netflix
+- Facebook
+- Flipkart
+- Odoo ERP
+
+These applications are deployed on cloud servers.
+
+---
+
+## Answer
+
+Deployment makes a web application available online for users around the world.
+
+---
+
+# 2. Why Do We Need Deployment?
+
+Without deployment,
+
+only your computer can access the application.
+
+Example
+
+```text
+http://localhost:5000
+```
+
+Only you can open it.
+
+After deployment,
+
+everyone can access the application using a public URL.
+
+---
+
+## Answer
+
+Deployment allows users to access the application from anywhere using the Internet.
+
+---
+
+# 3. Deployment Workflow
+
+```text
+Develop Flask Project
+
+↓
+
+Test on Local Computer
+
+↓
+
+Upload to GitHub
+
+↓
+
+Connect GitHub to Render
+
+↓
+
+Render Builds Project
+
+↓
+
+Application Goes Live
+
+↓
+
+Users Access the Website
+```
+
+---
+
+## Answer
+
+Deployment moves the application from your local system to a cloud server.
+
+---
+
+# 4. Project Structure Before Deployment
+
+```text
+AI_Salary_Predictor
+│
+├── app.py
+├── train_model.py
+├── salary.csv
+├── salary_model.pkl
+├── requirements.txt
+├── runtime.txt
+├── Procfile
+├── .gitignore
+├── README.md
+│
+├── templates
+│   ├── index.html
+│   └── result.html
+│
+└── static
+    ├── css
+    │   └── style.css
+    ├── images
+    └── js
+```
+
+---
+
+## Answer
+
+A properly organized project structure makes deployment easier.
+
+---
+
+# 5. What is requirements.txt?
+
+## Definition
+
+`requirements.txt` contains the list of Python libraries required by the project.
+
+Render installs these libraries automatically.
+
+---
+
+## Example
+
+```text
+Flask==3.1.0
+pandas==2.2.3
+numpy==2.1.3
+scikit-learn==1.6.1
+gunicorn==23.0.0
+```
+
+---
+
+## Generate Automatically
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+## Answer
+
+`requirements.txt` tells Render which Python packages to install.
+
+---
+
+# 6. What is runtime.txt?
+
+## Definition
+
+`runtime.txt` specifies the Python version that Render should use.
+
+---
+
+## Example
+
+```text
+python-3.12.4
+```
+
+---
+
+## Answer
+
+`runtime.txt` ensures the application runs with the correct Python version.
+
+---
+
+# 7. What is Procfile?
+
+## Definition
+
+A `Procfile` tells Render how to start your Flask application.
+
+---
+
+## Example
+
+```text
+web: gunicorn app:app
+```
+
+Explanation
+
+- `web` → Web service
+- `gunicorn` → Production web server
+- `app` → Python file (`app.py`)
+- `app` → Flask application object
+
+---
+
+## Answer
+
+The `Procfile` tells Render how to launch the Flask application.
+
+---
+
+# 8. What is .gitignore?
+
+## Definition
+
+`.gitignore` tells Git which files and folders should not be uploaded to GitHub.
+
+---
+
+## Example
+
+```text
+__pycache__/
+*.pyc
+venv/
+.env
+```
+
+---
+
+## Answer
+
+`.gitignore` prevents unnecessary or sensitive files from being uploaded.
+
+---
+
+# 9. What is README.md?
+
+## Definition
+
+`README.md` describes the project.
+
+It usually contains:
+
+- Project Title
+- Features
+- Technologies
+- Installation Steps
+- Screenshots
+- Deployment Link
+
+---
+
+## Answer
+
+`README.md` helps other developers understand your project.
+
+---
+
+# 10. Upload Project to GitHub
+
+## Step 1
+
+Initialize Git.
+
+```bash
+git init
+```
+
+---
+
+## Step 2
+
+Add all files.
+
+```bash
+git add .
+```
+
+---
+
+## Step 3
+
+Commit changes.
+
+```bash
+git commit -m "Initial Commit"
+```
+
+---
+
+## Step 4
+
+Connect GitHub repository.
+
+```bash
+git remote add origin <repository_url>
+```
+
+---
+
+## Step 5
+
+Push code.
+
+```bash
+git push -u origin main
+```
+
+---
+
+## Answer
+
+GitHub stores your project online and allows Render to access it.
+
+---
+
+# 11. Deploy on Render
+
+Deployment Steps
+
+1. Login to Render.
+
+2. Click **New Web Service**.
+
+3. Connect your GitHub account.
+
+4. Select the repository.
+
+5. Configure the project.
+
+---
+
+## Settings
+
+Environment
+
+```text
+Python 3
+```
+
+Build Command
+
+```text
+pip install -r requirements.txt
+```
+
+Start Command
+
+```text
+gunicorn app:app
+```
+
+---
+
+## Click
+
+```text
+Deploy Web Service
+```
+
+---
+
+## Answer
+
+Render automatically installs dependencies and starts the Flask application.
+
+---
+
+# 12. Public URL
+
+After deployment,
+
+Render generates a public URL.
+
+Example
+
+```text
+https://salarypredictor.onrender.com
+```
+
+Anyone with this URL can use your application.
+
+---
+
+## Answer
+
+The public URL allows global access to your application.
+
+---
+
+# 13. Complete Deployment Workflow
+
+```text
+Python Project
+
+↓
+
+requirements.txt
+
+↓
+
+GitHub Repository
+
+↓
+
+Render
+
+↓
+
+Build Process
+
+↓
+
+Gunicorn Starts Flask
+
+↓
+
+Application Goes Live
+
+↓
+
+Users Access Website
+```
+
+---
+
+# 14. Common Deployment Errors
+
+| Error | Solution |
+|--------|----------|
+| ModuleNotFoundError | Add missing package to requirements.txt |
+| Build Failed | Check requirements.txt and Python version |
+| App Crashed | Verify Procfile and app.py |
+| File Not Found | Check file paths |
+| Model Not Loading | Ensure `salary_model.pkl` is included |
+
+---
+
+## Answer
+
+Most deployment issues occur due to missing files, incorrect package versions, or configuration errors.
+
+---
+
+# Summary
+
+After completing Chapter 10, you have learned:
+
+- ✅ Deployment
+- ✅ requirements.txt
+- ✅ runtime.txt
+- ✅ Procfile
+- ✅ .gitignore
+- ✅ README.md
+- ✅ GitHub
+- ✅ Render
+- ✅ Public URL
+- ✅ Deployment Workflow
+
+---
+
+# Assignment (With Answers)
+
+## 1. What is Deployment?
+
+### Answer
+
+Deployment is the process of publishing a web application to an online server so users can access it through the Internet.
+
+---
+
+## 2. Why do we need Deployment?
+
+### Answer
+
+Deployment makes the application available online for users anywhere in the world.
+
+---
+
+## 3. What is `requirements.txt`?
+
+### Answer
+
+`requirements.txt` contains the list of Python packages required to run the application.
+
+---
+
+## 4. How do you create `requirements.txt`?
+
+### Answer
+
+```bash
+pip freeze > requirements.txt
+```
+
+---
+
+## 5. What is `runtime.txt`?
+
+### Answer
+
+`runtime.txt` specifies the Python version for deployment.
+
+Example:
+
+```text
+python-3.12.4
+```
+
+---
+
+## 6. What is the purpose of a `Procfile`?
+
+### Answer
+
+The `Procfile` tells Render how to start the Flask application.
+
+Example:
+
+```text
+web: gunicorn app:app
+```
+
+---
+
+## 7. What is `.gitignore`?
+
+### Answer
+
+`.gitignore` specifies which files and folders Git should ignore when uploading the project.
+
+---
+
+## 8. Why is GitHub required?
+
+### Answer
+
+GitHub stores the project online and allows deployment platforms like Render to access the source code.
+
+---
+
+## 9. What is Render?
+
+### Answer
+
+Render is a cloud platform used to deploy web applications, APIs, and static websites.
+
+---
+
+## 10. What is the final output of deployment?
+
+### Answer
+
+A public URL that anyone can access through a web browser.
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is Deployment?
+
+**Answer:**
+
+Deployment is the process of moving an application from a local development environment to a production server where users can access it.
+
+---
+
+## Q2. Why is `requirements.txt` important?
+
+**Answer:**
+
+It ensures all required Python libraries are installed during deployment.
+
+---
+
+## Q3. What is the purpose of a `Procfile`?
+
+**Answer:**
+
+It tells the deployment platform how to start the application.
+
+---
+
+## Q4. Why is Gunicorn used instead of `app.run()`?
+
+**Answer:**
+
+`app.run()` is intended for development only. Gunicorn is a production-grade WSGI server that can efficiently handle multiple requests.
+
+---
+
+## Q5. What is the role of GitHub in deployment?
+
+**Answer:**
+
+GitHub stores the source code and allows deployment services like Render to automatically fetch and deploy the latest version.
+
+---
+
+## Q6. What happens after clicking **Deploy** on Render?
+
+**Answer:**
+
+Render downloads the source code from GitHub, installs dependencies from `requirements.txt`, starts the application using the `Procfile`, and generates a public URL.
+
+---
+
+# Final Project Completed
+
+Congratulations! 🎉
+
+You have completed the **AI Employee Salary Predictor Using Flask + Machine Learning** project.
+
+### Skills You Have Learned
+
+- ✅ Flask Fundamentals
+- ✅ HTML Templates
+- ✅ CSS
+- ✅ Bootstrap
+- ✅ HTML Forms
+- ✅ User Input Handling
+- ✅ Jinja2 Templates
+- ✅ Machine Learning Integration
+- ✅ Model Training
+- ✅ Pickle Model Serialization
+- ✅ Git & GitHub
+- ✅ Deploying on Render
+- ✅ Building a Complete End-to-End AI Web Application
+
+You now have a complete portfolio-ready Flask + Machine Learning project that demonstrates both web development and AI integration.
