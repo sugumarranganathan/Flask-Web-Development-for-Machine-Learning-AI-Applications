@@ -1,0 +1,416 @@
+# Assignment – Chapter 2 (Answers)
+
+## 1. What is Web Development?
+
+### Answer
+
+Web Development is the process of creating websites and web applications that run on the Internet or a local network.
+
+It involves designing web pages, writing backend logic, connecting databases, and deploying applications online.
+
+**Example:**
+
+- Amazon
+- Gmail
+- Flipkart
+- Facebook
+- Odoo ERP
+
+All these are developed using web development technologies.
+
+---
+
+## 2. What is the difference between a Website and a Web Application?
+
+### Answer
+
+| Website | Web Application |
+|----------|-----------------|
+| Displays information | Performs tasks |
+| Mostly static | Dynamic |
+| Read only | Read and Write |
+| Usually no login | Usually requires login |
+| Limited interaction | High user interaction |
+
+### Example
+
+**Website**
+
+- College Website
+- Company Website
+- News Website
+
+**Web Application**
+
+- Gmail
+- Facebook
+- Online Banking
+- Odoo ERP
+- AI Employee Salary Predictor
+
+Our project is a **Web Application** because users enter information and receive predictions.
+
+---
+
+## 3. What is a Client?
+
+### Answer
+
+A **Client** is the software or device that sends requests to the server.
+
+In web development, the client is usually a web browser.
+
+### Examples
+
+- Google Chrome
+- Firefox
+- Microsoft Edge
+- Safari
+
+**Example**
+
+When you open
+
+```text
+http://localhost:5000
+```
+
+Chrome sends a request to the Flask server.
+
+---
+
+## 4. What is a Server?
+
+### Answer
+
+A **Server** is a computer or software that receives requests from clients, processes them, and sends responses.
+
+In our project,
+
+**Flask acts as the server.**
+
+Responsibilities of the server:
+
+- Receive request
+- Execute Python code
+- Call Machine Learning model
+- Generate HTML
+- Send response
+
+---
+
+## 5. What is Frontend?
+
+### Answer
+
+Frontend is the visible part of a web application that users interact with.
+
+### Technologies
+
+- HTML
+- CSS
+- Bootstrap
+- JavaScript
+
+### Examples
+
+- Textboxes
+- Buttons
+- Images
+- Forms
+- Navigation Bar
+
+In our project,
+
+The employee form is part of the frontend.
+
+---
+
+## 6. What is Backend?
+
+### Answer
+
+Backend is the hidden part of the application that performs all processing.
+
+### Technologies
+
+- Python
+- Flask
+- Machine Learning
+- Database
+
+Responsibilities:
+
+- Receive user input
+- Process data
+- Predict salary
+- Return the result
+
+Users cannot directly see the backend.
+
+---
+
+## 7. What is HTTP?
+
+### Answer
+
+HTTP stands for **HyperText Transfer Protocol**.
+
+It is the communication protocol used between the browser (client) and the server.
+
+Without HTTP, browsers cannot communicate with servers.
+
+Example
+
+```text
+Browser
+     ↓ HTTP Request
+
+Flask Server
+
+     ↓ HTTP Response
+
+Browser
+```
+
+---
+
+## 8. What is a Request?
+
+### Answer
+
+A **Request** is a message sent from the browser to the server asking for a resource or service.
+
+Example
+
+User opens
+
+```text
+http://localhost:5000
+```
+
+Browser sends
+
+```text
+GET /
+```
+
+This is called an HTTP Request.
+
+---
+
+## 9. What is a Response?
+
+### Answer
+
+A **Response** is the information sent by the server back to the browser after processing the request.
+
+Example
+
+Flask returns
+
+```text
+Welcome to AI Employee Salary Predictor
+```
+
+The browser displays the response.
+
+---
+
+## 10. What is localhost?
+
+### Answer
+
+**localhost** means **your own computer**.
+
+Example
+
+```text
+http://localhost:5000
+```
+
+Here,
+
+- localhost refers to your computer.
+- Flask is running on your system.
+
+Only you can access this application.
+
+Other users cannot access it unless the application is deployed online.
+
+---
+
+## 11. What is Port Number?
+
+### Answer
+
+A **Port Number** identifies a specific application running on a computer.
+
+Example
+
+```text
+http://localhost:5000
+```
+
+Here,
+
+- localhost = Your Computer
+- 5000 = Flask Application
+
+Examples of common ports:
+
+| Application | Port |
+|-------------|------|
+| HTTP | 80 |
+| HTTPS | 443 |
+| Flask | 5000 |
+| MySQL | 3306 |
+| PostgreSQL | 5432 |
+
+---
+
+## 12. Explain the complete workflow of Flask from browser request to response.
+
+### Answer
+
+The complete workflow is:
+
+```text
+User
+ │
+ ▼
+Open Browser
+ │
+ ▼
+Enter URL
+http://localhost:5000
+ │
+ ▼
+Browser Sends HTTP Request
+ │
+ ▼
+Flask Server Receives Request
+ │
+ ▼
+Python Code Executes
+ │
+ ▼
+Business Logic Runs
+ │
+ ▼
+Machine Learning Model Predicts Salary
+ │
+ ▼
+Flask Generates HTML Page
+ │
+ ▼
+Browser Receives HTTP Response
+ │
+ ▼
+User Sees Prediction Result
+```
+
+---
+
+# Summary
+
+After completing Chapter 2, you understand:
+
+- ✅ What is Web Development
+- ✅ Website vs Web Application
+- ✅ Client
+- ✅ Server
+- ✅ Frontend
+- ✅ Backend
+- ✅ Browser
+- ✅ Web Server
+- ✅ HTTP
+- ✅ Request
+- ✅ Response
+- ✅ URL
+- ✅ localhost
+- ✅ Port Number
+- ✅ Flask Workflow
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is Web Development?
+
+**Answer:**
+
+Web Development is the process of creating websites and web applications using technologies like HTML, CSS, JavaScript, Python, Flask, and databases.
+
+---
+
+## Q2. Explain Client-Server Architecture.
+
+**Answer:**
+
+In Client-Server Architecture, the client (browser) sends requests to the server. The server processes the request and returns the appropriate response.
+
+```text
+Client
+   │
+Request
+   ▼
+Server
+   │
+Response
+   ▼
+Client
+```
+
+---
+
+## Q3. What is the difference between Frontend and Backend?
+
+**Answer:**
+
+| Frontend | Backend |
+|----------|----------|
+| Visible to users | Hidden from users |
+| HTML, CSS, JavaScript | Python, Flask, ML |
+| User Interface | Business Logic |
+
+---
+
+## Q4. What is HTTP?
+
+**Answer:**
+
+HTTP (HyperText Transfer Protocol) is the communication protocol that allows browsers and servers to exchange requests and responses.
+
+---
+
+## Q5. Why does Flask use port 5000 by default?
+
+**Answer:**
+
+Flask uses **port 5000** as its default development server port. It is a standard default chosen for local development and testing. Developers can change it to another port if needed.
+
+---
+
+## Q6. What happens when you open `http://localhost:5000` in your browser?
+
+**Answer:**
+
+1. The browser sends an HTTP request.
+2. Flask receives the request.
+3. Python code executes.
+4. Business logic runs.
+5. HTML is generated.
+6. Flask sends an HTTP response.
+7. The browser displays the webpage.
+
+---
+
+## Q7. Is our AI Employee Salary Predictor a website or a web application? Why?
+
+**Answer:**
+
+It is a **Web Application** because users interact with it by entering employee details, 
+the backend processes the data using a Machine Learning model, and the application returns a predicted salary dynamically.
+
+==============
