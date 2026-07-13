@@ -1,0 +1,757 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 7: Passing Data from Flask to HTML (Jinja2 Templates)
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what Jinja2 is
+- Learn why Jinja2 is used in Flask
+- Pass data from Flask to HTML
+- Display dynamic content using variables
+- Use Jinja2 expressions `{{ }}`
+- Use Jinja2 statements `{% %}`
+- Create a Result Page
+- Display Employee Details on the Result Page
+
+---
+
+# 1. What is Jinja2?
+
+## Definition
+
+Jinja2 is the default template engine used by Flask.
+
+It allows Python data to be displayed inside HTML pages.
+
+Instead of showing static HTML, Jinja2 creates **dynamic webpages**.
+
+---
+
+## Real-Time Example
+
+Suppose the employee name is:
+
+```text
+Rahul
+```
+
+Without Jinja2
+
+```html
+<h2>Employee Name</h2>
+```
+
+Output
+
+```text
+Employee Name
+```
+
+With Jinja2
+
+```html
+<h2>{{ name }}</h2>
+```
+
+Output
+
+```text
+Rahul
+```
+
+---
+
+## Answer
+
+Jinja2 is a template engine that allows Flask to send Python variables to HTML.
+
+---
+
+# 2. Why Do We Need Jinja2?
+
+Suppose 1,000 employees use our application.
+
+Each employee has different
+
+- Name
+- Age
+- Education
+- Experience
+- Job Role
+
+Creating a separate HTML page for each employee is impossible.
+
+Instead,
+
+Flask sends the employee information dynamically using Jinja2.
+
+---
+
+## Answer
+
+Jinja2 makes HTML pages dynamic by displaying different data for different users.
+
+---
+
+# 3. What is a Template Engine?
+
+A Template Engine combines
+
+- HTML
+- Python Data
+
+and produces a final webpage.
+
+---
+
+## Workflow
+
+```text
+Python Data
+
+↓
+
+Jinja2
+
+↓
+
+HTML Page
+
+↓
+
+Browser
+```
+
+---
+
+## Answer
+
+A Template Engine generates dynamic HTML pages using Python data.
+
+---
+
+# 4. Passing Data from Flask
+
+Example
+
+```python
+return render_template(
+    "result.html",
+    name=name
+)
+```
+
+Here,
+
+Python sends the variable
+
+```text
+name
+```
+
+to
+
+```text
+result.html
+```
+
+---
+
+## Answer
+
+`render_template()` sends variables from Flask to HTML.
+
+---
+
+# 5. Create result.html
+
+Inside
+
+```text
+templates
+```
+
+Create
+
+```text
+result.html
+```
+
+---
+
+Write
+
+```html
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Employee Details</title>
+
+</head>
+
+<body>
+
+<h1>Employee Information</h1>
+
+<h2>Employee Name : {{ name }}</h2>
+
+</body>
+
+</html>
+```
+
+---
+
+## Answer
+
+`{{ name }}` displays the value received from Flask.
+
+---
+
+# 6. Update app.py
+
+```python
+from flask import Flask, render_template, request
+
+app = Flask(__name__)
+
+@app.route("/", methods=["GET","POST"])
+def home():
+
+    if request.method == "POST":
+
+        name = request.form["name"]
+
+        return render_template(
+            "result.html",
+            name=name
+        )
+
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+---
+
+# Output
+
+User enters
+
+```text
+Rahul
+```
+
+Browser displays
+
+```text
+Employee Information
+
+Employee Name : Rahul
+```
+
+---
+
+## Answer
+
+Flask passes the value of **name** to HTML using `render_template()`.
+
+---
+
+# 7. Passing Multiple Variables
+
+Example
+
+```python
+return render_template(
+
+    "result.html",
+
+    name=name,
+
+    age=age,
+
+    education=education,
+
+    experience=experience,
+
+    job=job
+
+)
+```
+
+---
+
+## Answer
+
+Flask can send multiple variables to an HTML page.
+
+---
+
+# 8. Display Multiple Variables
+
+Update
+
+```text
+result.html
+```
+
+```html
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Employee Details</title>
+
+</head>
+
+<body>
+
+<h1>Employee Information</h1>
+
+<p>Name : {{ name }}</p>
+
+<p>Age : {{ age }}</p>
+
+<p>Education : {{ education }}</p>
+
+<p>Experience : {{ experience }}</p>
+
+<p>Job Role : {{ job }}</p>
+
+</body>
+
+</html>
+```
+
+---
+
+# Output
+
+```text
+Employee Information
+
+Name : Rahul
+
+Age : 28
+
+Education : B.E
+
+Experience : 5
+
+Job Role : Software Engineer
+```
+
+---
+
+## Answer
+
+Every variable inside `{{ }}` is replaced with the actual value sent from Flask.
+
+---
+
+# 9. What is {{ }} ?
+
+Double curly braces display variables.
+
+Example
+
+```html
+{{ name }}
+```
+
+Output
+
+```text
+Rahul
+```
+
+---
+
+## Answer
+
+`{{ }}` is used to display variables inside HTML.
+
+---
+
+# 10. What is {% %} ?
+
+Curly braces with percentage signs execute logic.
+
+Example
+
+```html
+{% if age >= 18 %}
+
+Eligible
+
+{% endif %}
+```
+
+---
+
+Another Example
+
+```html
+{% for i in range(5) %}
+
+{{ i }}
+
+{% endfor %}
+```
+
+Output
+
+```text
+0
+
+1
+
+2
+
+3
+
+4
+```
+
+---
+
+## Answer
+
+`{% %}` is used for programming logic such as loops and conditions.
+
+---
+
+# 11. Difference Between {{ }} and {% %}
+
+| {{ }} | {% %} |
+|--------|--------|
+| Displays values | Executes logic |
+| Variables | Loops |
+| Expressions | Conditions |
+
+---
+
+## Answer
+
+Use
+
+```text
+{{ }}
+```
+
+for displaying data.
+
+Use
+
+```text
+{% %}
+```
+
+for decision-making and looping.
+
+---
+
+# 12. Complete Workflow
+
+```text
+User
+
+↓
+
+Enter Employee Details
+
+↓
+
+Click Predict Salary
+
+↓
+
+Browser Sends POST Request
+
+↓
+
+Flask Receives Data
+
+↓
+
+Python Variables Created
+
+↓
+
+render_template()
+
+↓
+
+Jinja2 Receives Variables
+
+↓
+
+HTML Page Generated
+
+↓
+
+Browser Displays Employee Information
+```
+
+---
+
+# 13. Real-Time Example
+
+Employee
+
+```text
+Name : Rahul
+
+Age : 28
+
+Education : B.E
+
+Experience : 5
+
+Job Role : Software Engineer
+```
+
+Flask sends
+
+```python
+render_template(
+
+"result.html",
+
+name=name,
+
+age=age,
+
+education=education,
+
+experience=experience,
+
+job=job
+
+)
+```
+
+Browser displays
+
+```text
+Employee Information
+
+Name : Rahul
+
+Age : 28
+
+Education : B.E
+
+Experience : 5
+
+Job Role : Software Engineer
+```
+
+---
+
+# Summary
+
+After completing Chapter 7, you have learned:
+
+- ✅ What is Jinja2
+- ✅ Template Engine
+- ✅ Passing Variables
+- ✅ render_template()
+- ✅ {{ }}
+- ✅ {% %}
+- ✅ Dynamic HTML
+- ✅ Result Page
+
+---
+
+# Assignment (With Answers)
+
+## 1. What is Jinja2?
+
+### Answer
+
+Jinja2 is Flask's template engine used to display Python data inside HTML pages.
+
+---
+
+## 2. Why is Jinja2 used?
+
+### Answer
+
+Jinja2 creates dynamic HTML pages by inserting Python variables into HTML templates.
+
+---
+
+## 3. How do you pass data from Flask to HTML?
+
+### Answer
+
+```python
+return render_template(
+
+"result.html",
+
+name=name
+
+)
+```
+
+---
+
+## 4. How do you display a variable in HTML?
+
+### Answer
+
+```html
+{{ name }}
+```
+
+---
+
+## 5. What is the purpose of `{{ }}`?
+
+### Answer
+
+It displays variables sent from Flask.
+
+---
+
+## 6. What is the purpose of `{% %}`?
+
+### Answer
+
+It performs programming logic such as loops and conditions.
+
+---
+
+## 7. Can Flask send multiple variables?
+
+### Answer
+
+Yes.
+
+Example
+
+```python
+render_template(
+
+"result.html",
+
+name=name,
+
+age=age,
+
+education=education
+
+)
+```
+
+---
+
+## 8. What is a Template Engine?
+
+### Answer
+
+A Template Engine combines HTML and Python data to create dynamic webpages.
+
+---
+
+## 9. Which file receives variables from Flask?
+
+### Answer
+
+The HTML template file, such as
+
+```text
+result.html
+```
+
+---
+
+## 10. What is the output of this chapter?
+
+### Answer
+
+Employee information entered by the user is displayed on a professional HTML page using Jinja2.
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is Jinja2?
+
+**Answer:**
+
+Jinja2 is Flask's built-in template engine that allows developers to display Python data inside HTML pages.
+
+---
+
+## Q2. What is the purpose of `render_template()`?
+
+**Answer:**
+
+It loads an HTML file and passes Python variables to it.
+
+---
+
+## Q3. What is the difference between `{{ }}` and `{% %}`?
+
+**Answer:**
+
+| `{{ }}` | `{% %}` |
+|----------|----------|
+| Displays values | Executes logic |
+| Variables | Loops and Conditions |
+
+---
+
+## Q4. Can multiple variables be passed to an HTML page?
+
+**Answer:**
+
+Yes. Multiple variables can be passed as keyword arguments in `render_template()`.
+
+---
+
+## Q5. Why is Jinja2 important?
+
+**Answer:**
+
+It allows one HTML page to display different content for different users without creating separate HTML files.
+
+---
+
+## Q6. What happens when `render_template("result.html", name=name)` is executed?
+
+**Answer:**
+
+Flask loads `result.html`, sends the value of `name` to the template, Jinja2 replaces `{{ name }}` with the actual value, and the browser displays the completed HTML page.
+
+---
+
+# Next Chapter
+
+# Chapter 8: HTML Forms with CSS and Bootstrap
+
+In the next chapter, you will learn:
+
+- What is CSS?
+- What is Bootstrap?
+- Styling HTML Forms
+- Creating Professional Input Fields
+- Buttons and Cards
+- Responsive Design
+- Building a Modern Employee Salary Prediction Form
+
+By the end of Chapter 8, your application will have a professional, responsive user interface instead of a plain HTML page.
