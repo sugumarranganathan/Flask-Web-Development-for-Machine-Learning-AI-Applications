@@ -1,0 +1,657 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 3: Flask Fundamentals
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what Flask is
+- Understand why Flask is used
+- Install Flask
+- Create your first Flask application
+- Understand the project structure
+- Learn the purpose of `app.py`
+- Understand Flask routing
+- Learn the `@app.route()` decorator
+- Run the Flask server
+- View the application in a web browser
+
+---
+
+# 1. What is Flask?
+
+## Definition
+
+Flask is a lightweight Python web framework used to build websites, web applications, and REST APIs.
+
+It helps developers create web applications quickly with minimal code.
+
+Flask is simple, flexible, and beginner-friendly.
+
+---
+
+## Real-Time Example
+
+Imagine a restaurant.
+
+- Customer places an order.
+- Waiter takes the order to the kitchen.
+- Chef prepares the food.
+- Waiter delivers the food.
+
+Similarly,
+
+- Browser sends a request.
+- Flask receives the request.
+- Python processes the request.
+- Flask returns the webpage.
+
+---
+
+## Answer
+
+Flask acts as the bridge between the browser and Python.
+
+---
+
+# 2. Why Do We Use Flask?
+
+Without Flask,
+
+Python programs run only in the terminal.
+
+Example
+
+```python
+print("Hello World")
+```
+
+Output
+
+```text
+Hello World
+```
+
+Only the programmer can see this.
+
+---
+
+With Flask,
+
+the same Python code can be shown inside a web browser.
+
+Example
+
+```text
+http://localhost:5000
+```
+
+Output
+
+```text
+Welcome to AI Employee Salary Predictor
+```
+
+Now anyone can access it through a browser.
+
+---
+
+## Answer
+
+We use Flask to convert Python programs into web applications.
+
+---
+
+# 3. Features of Flask
+
+Flask provides many useful features.
+
+- Lightweight
+- Simple to learn
+- Easy Routing
+- Template Engine
+- Fast Development
+- REST API Support
+- Easy Machine Learning Integration
+- Large Community Support
+
+---
+
+## Answer
+
+Flask is popular because it is simple, flexible, and integrates easily with Machine Learning.
+
+---
+
+# 4. Install Flask
+
+Open Terminal.
+
+Install Flask.
+
+```bash
+pip install flask
+```
+
+Check installation.
+
+```bash
+pip show flask
+```
+
+Check version.
+
+```bash
+python -c "import flask; print(flask.__version__)"
+```
+
+---
+
+## Answer
+
+Flask is installed using the pip package manager.
+
+---
+
+# 5. Create Project Folder
+
+Create a folder.
+
+```text
+AI_Salary_Predictor
+```
+
+Inside create
+
+```text
+AI_Salary_Predictor
+│
+├── app.py
+├── templates
+└── static
+```
+
+---
+
+## Answer
+
+This folder structure helps organize the project.
+
+---
+
+# 6. What is app.py?
+
+`app.py` is the main Python file.
+
+It contains
+
+- Flask Application
+- Routing
+- Backend Logic
+- Machine Learning Prediction
+
+Think of it as the brain of the project.
+
+---
+
+## Answer
+
+`app.py` controls the complete Flask application.
+
+---
+
+# 7. First Flask Program
+
+Create a file named
+
+```text
+app.py
+```
+
+Write the following code.
+
+```python
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "Welcome to AI Employee Salary Predictor"
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+---
+
+# Code Explanation
+
+### Line 1
+
+```python
+from flask import Flask
+```
+
+Imports the Flask class.
+
+---
+
+### Line 2
+
+```python
+app = Flask(__name__)
+```
+
+Creates a Flask application.
+
+---
+
+### Line 3
+
+```python
+@app.route("/")
+```
+
+Creates the Home Page route.
+
+Whenever the browser opens
+
+```text
+http://localhost:5000
+```
+
+this function will execute.
+
+---
+
+### Line 4
+
+```python
+def home():
+```
+
+Creates a Python function.
+
+---
+
+### Line 5
+
+```python
+return "Welcome to AI Employee Salary Predictor"
+```
+
+Returns the response to the browser.
+
+---
+
+### Line 6
+
+```python
+if __name__ == "__main__":
+```
+
+Checks whether this file is executed directly.
+
+---
+
+### Line 7
+
+```python
+app.run(debug=True)
+```
+
+Starts the Flask server.
+
+---
+
+## Answer
+
+This is the smallest working Flask application.
+
+---
+
+# 8. What is Routing?
+
+Routing connects a URL with a Python function.
+
+Example
+
+```python
+@app.route("/")
+```
+
+means
+
+```text
+http://localhost:5000/
+```
+
+Example
+
+```python
+@app.route("/about")
+```
+
+means
+
+```text
+http://localhost:5000/about
+```
+
+---
+
+## Answer
+
+Routing tells Flask which function should execute for a particular URL.
+
+---
+
+# 9. What is a Decorator?
+
+A decorator begins with the `@` symbol.
+
+Example
+
+```python
+@app.route("/")
+```
+
+The decorator connects the URL with a Python function.
+
+Without a decorator,
+
+Flask doesn't know which function to execute.
+
+---
+
+## Answer
+
+A decorator links a URL to a Python function.
+
+---
+
+# 10. Running the Flask Application
+
+Open the terminal.
+
+Go to the project folder.
+
+```bash
+cd AI_Salary_Predictor
+```
+
+Run the application.
+
+```bash
+python app.py
+```
+
+Terminal output
+
+```text
+* Running on http://127.0.0.1:5000
+```
+
+Open browser.
+
+```text
+http://127.0.0.1:5000
+```
+
+or
+
+```text
+http://localhost:5000
+```
+
+Output
+
+```text
+Welcome to AI Employee Salary Predictor
+```
+
+---
+
+## Answer
+
+The Flask server starts and waits for browser requests.
+
+---
+
+# 11. Understanding Debug Mode
+
+```python
+app.run(debug=True)
+```
+
+Debug mode automatically restarts the server whenever you save changes.
+
+Advantages
+
+- Faster development
+- Shows detailed error messages
+- No need to restart manually
+
+---
+
+## Answer
+
+Debug mode makes development easier by automatically reloading the application after code changes.
+
+---
+
+# 12. Workflow of First Flask Application
+
+```text
+User
+ │
+ ▼
+Open Browser
+ │
+ ▼
+http://localhost:5000
+ │
+ ▼
+Browser Sends Request
+ │
+ ▼
+Flask Receives Request
+ │
+ ▼
+home() Function Executes
+ │
+ ▼
+Return Statement Executes
+ │
+ ▼
+Browser Displays
+
+Welcome to AI Employee Salary Predictor
+```
+
+---
+
+# Summary
+
+After completing Chapter 3, you learned:
+
+- ✅ What is Flask
+- ✅ Why Flask is used
+- ✅ Flask Features
+- ✅ Installing Flask
+- ✅ Project Structure
+- ✅ Purpose of app.py
+- ✅ First Flask Program
+- ✅ Routing
+- ✅ Decorators
+- ✅ Running Flask
+- ✅ Debug Mode
+
+---
+
+# Assignment
+
+## 1. What is Flask?
+
+### Answer
+
+Flask is a lightweight Python web framework used to develop websites, web applications, and APIs.
+
+---
+
+## 2. Why do we use Flask?
+
+### Answer
+
+We use Flask to convert Python programs into web applications that users can access through a web browser.
+
+---
+
+## 3. How do you install Flask?
+
+### Answer
+
+```bash
+pip install flask
+```
+
+---
+
+## 4. What is `app.py`?
+
+### Answer
+
+`app.py` is the main Python file that contains the Flask application, routes, and backend logic.
+
+---
+
+## 5. What is Routing?
+
+### Answer
+
+Routing maps a URL to a Python function.
+
+Example:
+
+```python
+@app.route("/")
+```
+
+opens the Home page.
+
+---
+
+## 6. What is a Decorator?
+
+### Answer
+
+A decorator starts with the `@` symbol and connects a URL with a Python function.
+
+Example:
+
+```python
+@app.route("/")
+```
+
+---
+
+## 7. What is Debug Mode?
+
+### Answer
+
+Debug mode automatically reloads the Flask application whenever the code changes and displays detailed error messages.
+
+---
+
+## 8. Which command starts a Flask application?
+
+### Answer
+
+```bash
+python app.py
+```
+
+---
+
+## 9. Which URL opens the Home page?
+
+### Answer
+
+```text
+http://localhost:5000
+```
+
+or
+
+```text
+http://127.0.0.1:5000
+```
+
+---
+
+## 10. What is the output of the first Flask program?
+
+### Answer
+
+```text
+Welcome to AI Employee Salary Predictor
+```
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is Flask?
+
+**Answer:** Flask is a lightweight Python framework used to build web applications and APIs.
+
+---
+
+## Q2. Why is Flask called a lightweight framework?
+
+**Answer:** Flask provides only the essential tools needed for web development, allowing developers to add additional libraries only when required.
+
+---
+
+## Q3. What is the purpose of `app = Flask(__name__)`?
+
+**Answer:** It creates and initializes the Flask application instance.
+
+---
+
+## Q4. What is the purpose of `@app.route("/")`?
+
+**Answer:** It maps the root URL (`/`) to the `home()` function so Flask knows which function to execute when that URL is requested.
+
+---
+
+## Q5. Why do we use `return` in a Flask route?
+
+**Answer:** The `return` statement sends the response (such as text or an HTML page) back to the browser.
+
+---
+
+## Q6. What does `app.run(debug=True)` do?
+
+**Answer:** It starts the Flask development server and enables debug mode, which automatically reloads the application when code changes and displays detailed error information.
+
+---
+
+# Next Chapter
+
+## Chapter 4 – HTML Templates
+
+In the next chapter, you will learn:
+
+- What are HTML Templates?
+- Why the `templates` folder is required
+- Creating `index.html`
+- Using `render_template()`
+- Displaying HTML pages from Flask
+- Understanding the interaction between Flask and HTML
+
+By the end of Chapter 4, your application will display a professional HTML page instead of plain text.
