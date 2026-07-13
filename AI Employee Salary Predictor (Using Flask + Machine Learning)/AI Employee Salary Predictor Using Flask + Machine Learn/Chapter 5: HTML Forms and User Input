@@ -1,0 +1,676 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 5: HTML Forms and User Input
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what an HTML Form is
+- Learn why forms are used
+- Create Text Boxes
+- Create Number Input Fields
+- Create Dropdown Lists
+- Create Submit Buttons
+- Understand GET and POST methods
+- Receive user input in Flask
+- Build the Employee Details Form
+
+---
+
+# 1. What is an HTML Form?
+
+## Definition
+
+An HTML Form is a section of a webpage that allows users to enter information and send it to the server for processing.
+
+Forms are one of the most important parts of web applications because they collect user input.
+
+---
+
+## Real-Time Examples
+
+Examples of HTML Forms:
+
+- Login Form
+- Registration Form
+- Contact Form
+- Online Banking Transfer Form
+- Railway Ticket Booking Form
+- College Admission Form
+- Employee Salary Prediction Form
+
+---
+
+## Answer
+
+An HTML Form is used to collect user input and send it to the server.
+
+---
+
+# 2. Why Do We Need HTML Forms?
+
+Without forms,
+
+Users cannot enter data into a website.
+
+Our application needs information such as:
+
+- Employee Name
+- Age
+- Education
+- Experience
+- Job Role
+
+This information is entered using an HTML Form.
+
+---
+
+## Answer
+
+HTML Forms allow users to provide data that can be processed by Flask and Machine Learning.
+
+---
+
+# 3. Form Elements
+
+A form contains different input elements.
+
+| Element | Purpose |
+|----------|---------|
+| Text Box | Enter text |
+| Number Box | Enter numbers |
+| Dropdown | Select one option |
+| Radio Button | Select one item |
+| Checkbox | Select multiple items |
+| Submit Button | Send data |
+
+---
+
+## Answer
+
+Different form elements are used depending on the type of data the user enters.
+
+---
+
+# 4. Creating Our First HTML Form
+
+Open:
+
+```text
+templates/index.html
+```
+
+Replace the previous code with:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Employee Salary Predictor</title>
+</head>
+
+<body>
+
+<h1>AI Employee Salary Predictor</h1>
+
+<form>
+
+<label>Employee Name</label>
+
+<input type="text">
+
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+
+</html>
+```
+
+---
+
+## Output
+
+```text
+AI Employee Salary Predictor
+
+Employee Name
+
+[____________________]
+
+[ Submit ]
+```
+
+---
+
+## Answer
+
+This is the simplest HTML Form.
+
+---
+
+# 5. Text Box
+
+A text box is used to enter text.
+
+Example
+
+```html
+<input type="text">
+```
+
+---
+
+## Real-Time Example
+
+Employee Name
+
+```text
+Rahul
+```
+
+---
+
+## Answer
+
+A Text Box allows users to enter text values.
+
+---
+
+# 6. Number Input
+
+A number field accepts only numeric values.
+
+Example
+
+```html
+<input type="number">
+```
+
+---
+
+## Real-Time Example
+
+Age
+
+```text
+28
+```
+
+Experience
+
+```text
+5
+```
+
+---
+
+## Answer
+
+Number fields are used for numeric data.
+
+---
+
+# 7. Dropdown List
+
+Dropdown lists allow users to select one option.
+
+Example
+
+```html
+<select>
+
+<option>B.E</option>
+
+<option>B.Tech</option>
+
+<option>MCA</option>
+
+<option>MBA</option>
+
+</select>
+```
+
+---
+
+## Output
+
+```text
+▼ B.E
+```
+
+---
+
+## Answer
+
+Dropdowns reduce typing errors by allowing users to choose predefined options.
+
+---
+
+# 8. Submit Button
+
+The Submit button sends form data to the Flask server.
+
+Example
+
+```html
+<input type="submit" value="Predict Salary">
+```
+
+---
+
+## Output
+
+```text
+[ Predict Salary ]
+```
+
+---
+
+## Answer
+
+The Submit button sends user data for processing.
+
+---
+
+# 9. Complete Employee Form
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>AI Employee Salary Predictor</title>
+
+</head>
+
+<body>
+
+<h1>AI Employee Salary Predictor</h1>
+
+<form>
+
+<label>Employee Name</label>
+
+<input type="text">
+
+<br><br>
+
+<label>Age</label>
+
+<input type="number">
+
+<br><br>
+
+<label>Education</label>
+
+<select>
+
+<option>B.E</option>
+
+<option>B.Tech</option>
+
+<option>MCA</option>
+
+<option>MBA</option>
+
+</select>
+
+<br><br>
+
+<label>Experience</label>
+
+<input type="number">
+
+<br><br>
+
+<label>Job Role</label>
+
+<input type="text">
+
+<br><br>
+
+<input type="submit" value="Predict Salary">
+
+</form>
+
+</body>
+
+</html>
+```
+
+---
+
+# Output
+
+```text
+AI Employee Salary Predictor
+
+Employee Name
+
+[________________]
+
+Age
+
+[__]
+
+Education
+
+▼ B.E
+
+Experience
+
+[__]
+
+Job Role
+
+[________________]
+
+[ Predict Salary ]
+```
+
+---
+
+# 10. What is GET Method?
+
+GET sends data through the URL.
+
+Example
+
+```text
+http://localhost:5000/?name=Rahul
+```
+
+Advantages
+
+- Easy to test
+- Used for searching
+
+Disadvantages
+
+- Data is visible in the URL
+- Not secure for sensitive information
+
+---
+
+## Answer
+
+GET is used when the data is safe to appear in the URL.
+
+---
+
+# 11. What is POST Method?
+
+POST sends data inside the request body.
+
+Example
+
+```html
+<form method="POST">
+```
+
+Advantages
+
+- Secure
+- Large amount of data
+- Passwords remain hidden
+
+---
+
+## Answer
+
+POST is the preferred method for forms that send important information.
+
+---
+
+# 12. GET vs POST
+
+| GET | POST |
+|------|------|
+| Data in URL | Data in Request Body |
+| Less Secure | More Secure |
+| Small Data | Large Data |
+| Search Forms | Registration/Login Forms |
+
+---
+
+## Answer
+
+Our Salary Prediction project will use the **POST** method.
+
+---
+
+# 13. Updating the Form to Use POST
+
+Update the form tag.
+
+```html
+<form method="POST">
+```
+
+---
+
+## Answer
+
+Now the form sends data securely to Flask.
+
+---
+
+# 14. Workflow
+
+```text
+User
+
+↓
+
+Open Website
+
+↓
+
+Enter Employee Details
+
+↓
+
+Click Predict Salary
+
+↓
+
+Browser Sends Form Data
+
+↓
+
+Flask Receives Data
+
+↓
+
+Machine Learning Predicts Salary
+
+↓
+
+Browser Displays Result
+```
+
+---
+
+# Summary
+
+After completing Chapter 5, you have learned:
+
+- ✅ HTML Forms
+- ✅ Text Boxes
+- ✅ Number Inputs
+- ✅ Dropdown Lists
+- ✅ Submit Buttons
+- ✅ GET Method
+- ✅ POST Method
+- ✅ Employee Form Creation
+- ✅ Form Workflow
+
+---
+
+# Assignment (With Answers)
+
+## 1. What is an HTML Form?
+
+### Answer
+
+An HTML Form is used to collect user information and send it to the server.
+
+---
+
+## 2. Why do we use Forms?
+
+### Answer
+
+Forms allow users to enter information such as names, numbers, passwords, and selections.
+
+---
+
+## 3. Which HTML tag creates a form?
+
+### Answer
+
+```html
+<form>
+```
+
+---
+
+## 4. Which input type creates a text box?
+
+### Answer
+
+```html
+<input type="text">
+```
+
+---
+
+## 5. Which input type creates a number field?
+
+### Answer
+
+```html
+<input type="number">
+```
+
+---
+
+## 6. Which HTML tag creates a dropdown list?
+
+### Answer
+
+```html
+<select>
+```
+
+---
+
+## 7. Which HTML tag creates the options inside a dropdown?
+
+### Answer
+
+```html
+<option>
+```
+
+---
+
+## 8. What does the Submit button do?
+
+### Answer
+
+It sends the form data to the Flask server for processing.
+
+---
+
+## 9. What is the difference between GET and POST?
+
+### Answer
+
+GET sends data through the URL, while POST sends data inside the request body, making it more secure.
+
+---
+
+## 10. Which method is used in our Salary Prediction project?
+
+### Answer
+
+The **POST** method is used because employee information should be sent securely.
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is an HTML Form?
+
+**Answer:**
+
+An HTML Form is used to collect user input and send it to the server.
+
+---
+
+## Q2. What is the purpose of the `<form>` tag?
+
+**Answer:**
+
+The `<form>` tag groups input elements together and defines how data is submitted to the server.
+
+---
+
+## Q3. What is the difference between `type="text"` and `type="number"`?
+
+**Answer:**
+
+- `type="text"` accepts any text.
+- `type="number"` accepts only numeric values.
+
+---
+
+## Q4. Why are dropdown lists useful?
+
+**Answer:**
+
+Dropdown lists reduce typing mistakes and ensure users select from predefined options.
+
+---
+
+## Q5. What is the difference between GET and POST?
+
+**Answer:**
+
+GET sends data in the URL, whereas POST sends data in the request body, making POST more secure.
+
+---
+
+## Q6. Which method is recommended for login forms and salary prediction forms?
+
+**Answer:**
+
+The **POST** method is recommended because sensitive information should not appear in the URL.
+
+---
+
+# Next Chapter
+
+# Chapter 6: Receiving User Input in Flask
+
+In the next chapter, you will learn:
+
+- What is `request`
+- Understanding `request.form`
+- Receiving Form Data
+- Displaying User Input
+- Processing Employee Details
+- Passing Data from HTML to Flask
+- Displaying Dynamic Results
+
+By the end of Chapter 6, your Flask application will receive employee details entered in the form and display them dynamically.
