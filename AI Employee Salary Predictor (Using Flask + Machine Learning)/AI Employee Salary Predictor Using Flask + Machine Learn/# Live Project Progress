@@ -1,0 +1,25 @@
+Start
+│
+├── ✅ Step 1 : Create Project Folder
+├── ✅ Step 2 : Install Flask
+├── ✅ Step 3 : Create Virtual Environment
+├── ✅ Step 4 : Create First Flask App
+├── ✅ Step 5 : Create HTML Page
+├── ✅ Step 6 : Add CSS
+├── ✅ Step 7 : Build Employee Form
+├── ✅ Step 8 : Receive User Input
+├── ✅ Step 9 : Display Result Page
+│
+├── Step 10 : Machine Learning
+│      ├── ✅ 10.1 Create Dataset
+│      ├── ✅ 10.2 Read Dataset
+│      ├── ✅ 10.3 Features (X) & Target (y)
+│      ├── ✅ 10.4 Train Linear Regression Model
+│      ├── ✅ 10.5 Predict Salary
+│      ├── ✅ 10.6 Save Model (.pkl)
+│      ├── ✅ 10.7 Load Saved Model
+│      └── ✅ 10.8 Connect Flask + Machine Learning
+│
+└── ✅ Complete AI Employee Salary Predictor (Version 1)
+
+
