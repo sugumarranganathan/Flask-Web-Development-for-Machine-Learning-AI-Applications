@@ -1,0 +1,33 @@
+Topic 4 - Simple Web App using HTML
+
+Mini Project
+
+Employee Registration Form
+
+Fields
+
+Name
+
+Age
+
+Department
+
+Submit
+
+Learn
+
+Templates
+
+HTML
+
+render_template()
+
+Folder
+
+project
+
+app.py
+
+templates
+
+index.html
