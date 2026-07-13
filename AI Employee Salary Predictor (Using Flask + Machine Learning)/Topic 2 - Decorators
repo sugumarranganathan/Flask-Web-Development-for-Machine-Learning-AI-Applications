@@ -1,0 +1,32 @@
+Topic 2 - Decorators
+Goal
+
+Understand routing.
+
+Mini Project
+
+Company Website
+
+/
+About
+Contact
+Services
+Career
+
+Routes
+
+/
+
+/about
+
+/contact
+
+/services
+
+/career
+
+Learn
+
+@app.route("/")
+
+Every page uses one decorator.
