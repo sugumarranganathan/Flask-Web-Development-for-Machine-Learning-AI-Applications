@@ -67,5 +67,45 @@ Website Basics
 │
 └── Complete AI Employee Salary Prediction System
 
+
+====
+
+Overall Learning Flow
+
+Start
+│
+├── Website Basics
+│
+├── Flask Routing
+│
+├── Flask Application
+│
+├── HTML Templates
+│
+├── Form Data Handling
+│
+├── Multiple Web Pages
+│
+├── User Input & Output
+│
+├── Backend Processing Logic
+│
+├── Machine Learning Integration
+│
+├── Deployment Files
+│
+├── Enhanced Machine Learning Application
+│
+├── Professional User Interface (UI)
+│
+├── Deploy on Render
+│
+├── ChatGPT for Development
+│
+└── Complete AI Employee Salary Prediction System
+Finish
+
+===
+
 =======
 
