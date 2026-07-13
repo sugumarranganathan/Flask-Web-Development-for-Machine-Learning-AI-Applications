@@ -1,0 +1,546 @@
+# AI Employee Salary Predictor Using Flask + Machine Learning
+
+# Chapter 4: HTML Templates
+
+---
+
+# Learning Objectives
+
+After completing this chapter, you will be able to:
+
+- Understand what HTML Templates are
+- Learn why the `templates` folder is required
+- Create your first HTML page
+- Use `render_template()`
+- Display HTML pages from Flask
+- Understand how Flask communicates with HTML
+- Build the Home Page of our project
+
+---
+
+# 1. What is HTML?
+
+## Definition
+
+HTML stands for **HyperText Markup Language**.
+
+It is the standard language used to create web pages.
+
+HTML defines the structure and content of a webpage.
+
+---
+
+## Real-Time Example
+
+Think of building a house.
+
+| House | Website |
+|--------|----------|
+| Foundation | HTML |
+| Paint | CSS |
+| Electricity | JavaScript |
+
+Without the foundation, a house cannot be built.
+
+Similarly,
+
+Without HTML, a website cannot exist.
+
+---
+
+## Answer
+
+HTML is the language used to create the structure of a webpage.
+
+---
+
+# 2. What is an HTML Template?
+
+## Definition
+
+An HTML Template is an HTML file that Flask displays in the browser.
+
+Instead of returning plain text,
+
+Flask returns an HTML page.
+
+### Example
+
+Instead of:
+
+```python
+return "Welcome"
+```
+
+We display:
+
+```html
+<h1>Welcome</h1>
+```
+
+---
+
+## Answer
+
+An HTML Template is an HTML page that Flask sends to the browser.
+
+---
+
+# 3. Why Do We Need HTML Templates?
+
+Suppose our application contains:
+
+- Home Page
+- About Page
+- Contact Page
+- Prediction Page
+- Result Page
+
+Writing everything inside Python is difficult.
+
+Instead, each page is stored as an individual HTML file.
+
+### Example
+
+```text
+templates/
+│
+├── index.html
+├── about.html
+├── contact.html
+├── predict.html
+└── result.html
+```
+
+---
+
+## Answer
+
+HTML Templates separate webpage design from Python code.
+
+This makes the application clean, organized, and easy to maintain.
+
+---
+
+# 4. What is the `templates` Folder?
+
+Flask automatically searches for HTML files inside a folder named:
+
+```text
+templates
+```
+
+If the folder name is changed,
+
+Flask cannot locate the HTML files unless additional configuration is provided.
+
+---
+
+## Project Structure
+
+```text
+AI_Salary_Predictor
+│
+├── app.py
+│
+├── templates
+│   └── index.html
+│
+└── static
+```
+
+---
+
+## Answer
+
+The `templates` folder stores all HTML pages used by the Flask application.
+
+---
+
+# 5. Create `index.html`
+
+Inside the `templates` folder, create a file named:
+
+```text
+index.html
+```
+
+Add the following code:
+
+```html
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AI Employee Salary Predictor</title>
+</head>
+
+<body>
+
+    <h1>Welcome to AI Employee Salary Predictor</h1>
+
+    <p>This is our first Flask HTML page.</p>
+
+</body>
+
+</html>
+```
+
+---
+
+## Answer
+
+This is the first HTML page that Flask displays in the browser.
+
+---
+
+# 6. What is `render_template()`?
+
+Previously, we returned plain text.
+
+```python
+return "Welcome"
+```
+
+Now we return an HTML page.
+
+```python
+return render_template("index.html")
+```
+
+Flask automatically loads:
+
+```text
+templates/index.html
+```
+
+and displays it in the browser.
+
+---
+
+## Answer
+
+`render_template()` loads an HTML file from the `templates` folder and sends it to the browser.
+
+---
+
+# 7. Update `app.py`
+
+Replace the previous code with:
+
+```python
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+```
+
+---
+
+# Code Explanation
+
+## Line 1
+
+```python
+from flask import Flask, render_template
+```
+
+Imports the Flask framework and the `render_template()` function.
+
+---
+
+## Line 2
+
+```python
+app = Flask(__name__)
+```
+
+Creates the Flask application.
+
+---
+
+## Line 3
+
+```python
+@app.route("/")
+```
+
+Creates the Home Page route.
+
+Whenever the browser opens:
+
+```text
+http://localhost:5000
+```
+
+the `home()` function executes.
+
+---
+
+## Line 4
+
+```python
+def home():
+```
+
+Defines the Home Page function.
+
+---
+
+## Line 5
+
+```python
+return render_template("index.html")
+```
+
+Displays the HTML page.
+
+---
+
+## Line 6
+
+```python
+app.run(debug=True)
+```
+
+Starts the Flask development server.
+
+---
+
+## Answer
+
+The Flask application now displays an HTML page instead of plain text.
+
+---
+
+# 8. Project Workflow
+
+```text
+User
+ │
+ ▼
+Open Browser
+ │
+ ▼
+http://localhost:5000
+ │
+ ▼
+Browser Sends Request
+ │
+ ▼
+Flask Receives Request
+ │
+ ▼
+home() Function Executes
+ │
+ ▼
+render_template("index.html")
+ │
+ ▼
+Flask Reads HTML File
+ │
+ ▼
+Browser Displays HTML Page
+```
+
+---
+
+# 9. Expected Output
+
+When you open:
+
+```text
+http://localhost:5000
+```
+
+The browser displays:
+
+```text
+Welcome to AI Employee Salary Predictor
+
+This is our first Flask HTML page.
+```
+
+---
+
+# 10. Why is HTML Better Than Plain Text?
+
+| Plain Text | HTML |
+|------------|------|
+| Only text | Text, Images, Buttons, Forms |
+| No formatting | Professional layout |
+| No colors | Supports CSS styling |
+| No interaction | Supports Forms and User Input |
+
+---
+
+## Answer
+
+HTML allows developers to create professional, structured, and interactive web pages.
+
+---
+
+# Summary
+
+After completing Chapter 4, you have learned:
+
+- ✅ What HTML is
+- ✅ What an HTML Template is
+- ✅ Why HTML Templates are needed
+- ✅ Purpose of the `templates` folder
+- ✅ Creating `index.html`
+- ✅ Using `render_template()`
+- ✅ Displaying HTML pages with Flask
+- ✅ Flask and HTML workflow
+
+---
+
+# Assignment (With Answers)
+
+## 1. What is HTML?
+
+### Answer
+
+HTML (HyperText Markup Language) is the standard language used to create the structure of web pages.
+
+---
+
+## 2. What is an HTML Template?
+
+### Answer
+
+An HTML Template is an HTML file stored inside the `templates` folder and displayed by Flask using `render_template()`.
+
+---
+
+## 3. Why do we use the `templates` folder?
+
+### Answer
+
+The `templates` folder stores all HTML files. Flask automatically searches this folder whenever `render_template()` is called.
+
+---
+
+## 4. What is `render_template()`?
+
+### Answer
+
+`render_template()` loads an HTML file from the `templates` folder and sends it to the browser as the HTTP response.
+
+---
+
+## 5. Where should `index.html` be stored?
+
+### Answer
+
+Inside the `templates` folder.
+
+```text
+AI_Salary_Predictor
+│
+├── app.py
+└── templates
+    └── index.html
+```
+
+---
+
+## 6. What happens when `render_template("index.html")` is executed?
+
+### Answer
+
+Flask reads the `index.html` file from the `templates` folder and sends it to the browser for display.
+
+---
+
+## 7. Why is HTML preferred over plain text?
+
+### Answer
+
+HTML allows developers to create structured, attractive, and interactive web pages with headings, images, forms, buttons, links, and tables.
+
+---
+
+# Interview Questions (With Answers)
+
+## Q1. What is HTML?
+
+**Answer:**
+
+HTML (HyperText Markup Language) is used to create the structure and content of web pages.
+
+---
+
+## Q2. What is an HTML Template in Flask?
+
+**Answer:**
+
+An HTML Template is an HTML file stored inside the `templates` folder that Flask renders using the `render_template()` function.
+
+---
+
+## Q3. Why is the folder named `templates`?
+
+**Answer:**
+
+Flask automatically searches for HTML files inside a folder named `templates`. If the folder name is changed, Flask cannot locate the template files without additional configuration.
+
+---
+
+## Q4. What is the purpose of `render_template()`?
+
+**Answer:**
+
+It loads an HTML file from the `templates` folder and returns it as the HTTP response to the browser.
+
+---
+
+## Q5. What is the difference between:
+
+```python
+return "Hello"
+```
+
+and
+
+```python
+return render_template("index.html")
+```
+
+**Answer:**
+
+- `return "Hello"` sends plain text to the browser.
+- `return render_template("index.html")` sends a complete HTML webpage.
+
+---
+
+## Q6. Can Flask display HTML without `render_template()`?
+
+**Answer:**
+
+Yes. Flask can return raw HTML as a string, but using `render_template()` with HTML files stored in the `templates` folder is the recommended and standard approach.
+
+---
+
+# Next Chapter
+
+# Chapter 5: HTML Forms and User Input
+
+In the next chapter, you will learn:
+
+- What is an HTML Form?
+- Creating Text Boxes
+- Number Input Fields
+- Dropdown Lists
+- Submit Buttons
+- GET vs POST Method
+- Receiving User Input in Flask
+- Building the Employee Details Form
+
+By the end of Chapter 5, users will be be able to enter employee information through a web form, which will later be used for salary prediction.
