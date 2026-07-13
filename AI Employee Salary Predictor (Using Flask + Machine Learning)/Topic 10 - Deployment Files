@@ -1,0 +1,21 @@
+Topic 10 - Deployment Files
+
+Mini Project
+
+Prepare application for deployment.
+
+Create
+
+requirements.txt
+
+runtime.txt
+
+Procfile
+
+.gitignore
+
+README.md
+
+Learn
+
+Deployment structure.
